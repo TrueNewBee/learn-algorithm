@@ -414,3 +414,935 @@ public int numSubarrayProductLessThanK(int[] nums, int k) {
     }
 ```
 
+
+
+### 二分查找树 [搜索旋转排序数组【基础算法精讲 05】_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1AP41137w7/?spm_id_from=333.788)
+
+### 8. [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+给你一个按照非递减顺序排列的整数数组 `nums`，和一个目标值 `target`。请你找出给定目标值在数组中的开始位置和结束位置。
+
+如果数组中不存在目标值 `target`，返回 `[-1, -1]`。
+
+你必须设计并实现时间复杂度为 `O(log n)` 的算法解决此问题。
+
+**示例 1：**
+
+```
+输入：nums = [5,7,7,8,8,10], target = 8
+输出：[3,4]
+```
+
+**示例 2：**
+
+```
+输入：nums = [5,7,7,8,8,10], target = 6
+输出：[-1,-1]
+```
+
+
+
+### 9. [162. 寻找峰值 ](https://leetcode.cn/problems/find-peak-element/) [搜索旋转排序数组【基础算法精讲 05】_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1QK411d76w/?spm_id_from=333.788)
+
+峰值元素是指其值严格大于左右相邻值的元素。
+
+给你一个整数数组 `nums`，找到峰值元素并返回其索引。数组可能包含多个峰值，在这种情况下，返回 **任何一个峰值** 所在位置即可。
+
+你可以假设 `nums[-1] = nums[n] = -∞` 。
+
+你必须实现时间复杂度为 `O(log n)` 的算法来解决此问题。
+
+**示例 1：**
+
+```
+输入：nums = [1,2,3,1]
+输出：2
+解释：3 是峰值元素，你的函数应该返回其索引 2。
+```
+
+**示例 2：**
+
+```
+输入：nums = [1,2,1,3,5,6,4]
+输出：1 或 5 
+解释：你的函数可以返回索引 1，其峰值元素为 2；
+     或者返回索引 5， 其峰值元素为 6。
+```
+
+
+
+### 10. [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/)
+
+已知一个长度为 `n` 的数组，预先按照升序排列，经由 `1` 到 `n` 次 **旋转** 后，得到输入数组。例如，原数组 `nums = [0,1,2,4,5,6,7]` 在变化后可能得到：
+
+- 若旋转 `4` 次，则可以得到 `[4,5,6,7,0,1,2]`
+- 若旋转 `7` 次，则可以得到 `[0,1,2,4,5,6,7]`
+
+注意，数组 `[a[0], a[1], a[2], ..., a[n-1]]` **旋转一次** 的结果为数组 `[a[n-1], a[0], a[1], a[2], ..., a[n-2]]` 。
+
+给你一个元素值 **互不相同** 的数组 `nums` ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 **最小元素** 。
+
+你必须设计一个时间复杂度为 `O(log n)` 的算法解决此问题。
+
+ 
+
+**示例 1：**
+
+```
+输入：nums = [3,4,5,1,2]
+输出：1
+解释：原数组为 [1,2,3,4,5] ，旋转 3 次得到输入数组。
+```
+
+**示例 2：**
+
+```
+输入：nums = [4,5,6,7,0,1,2]
+输出：0
+解释：原数组为 [0,1,2,4,5,6,7] ，旋转 3 次得到输入数组。
+```
+
+**示例 3：**
+
+```
+输入：nums = [11,13,15,17]
+输出：11
+解释：原数组为 [11,13,15,17] ，旋转 4 次得到输入数组。
+```
+
+### 11.[33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+整数数组 `nums` 按升序排列，数组中的值 **互不相同** 。
+
+在传递给函数之前，`nums` 在预先未知的某个下标 `k`（`0 <= k < nums.length`）上进行了 **旋转**，使数组变为 `[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]`（下标 **从 0 开始** 计数）。例如， `[0,1,2,4,5,6,7]` 在下标 `3` 处经旋转后可能变为 `[4,5,6,7,0,1,2]` 。
+
+给你 **旋转后** 的数组 `nums` 和一个整数 `target` ，如果 `nums` 中存在这个目标值 `target` ，则返回它的下标，否则返回 `-1` 。
+
+你必须设计一个时间复杂度为 `O(log n)` 的算法解决此问题。
+
+ 
+
+**示例 1：**
+
+```
+输入：nums = [4,5,6,7,0,1,2], target = 0
+输出：4
+```
+
+**示例 2：**
+
+```
+输入：nums = [4,5,6,7,0,1,2], target = 3
+输出：-1
+```
+
+**示例 3：**
+
+```
+输入：nums = [1], target = 0
+输出：-1
+```
+
+###  [反转链表_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1sd4y1x7KN/?spm_id_from=333.788&vd_source=394ba7019e7f10f68c4eca0cd2e58166)    连表
+
+### 12.[206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/)
+
+给你单链表的头节点 `head` ，请你反转链表，并返回反转后的链表。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/rev1ex1.jpg)
+
+```
+输入：head = [1,2,3,4,5]
+输出：[5,4,3,2,1]
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/rev1ex2.jpg)
+
+```
+	输入：head = [1,2]
+输出：[2,1]
+```
+
+```java
+
+public class LeetCode206 {
+     // head -- cur
+     //然后倒序,头作为 next变成pre
+    // 头  1->2->3->4->5  尾
+    // 1<-2<-3<-4<-5
+    public ListNode reverseList(ListNode head) {
+        // 反转后的头节点
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur !=null){
+            // 暂存当且节点下一个值
+            ListNode next = cur.next;
+            // 将头节点反转, 第一个的next为null
+            cur.next  = pre;
+            // pre为新的头结点
+            pre = cur;
+            // cur为下一个节点
+            cur = next;
+        }
+        return pre;
+
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+}
+
+```
+
+### 13. [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/)  
+
+给你单链表的头指针 `head` 和两个整数 `left` 和 `right` ，其中 `left <= right` 。请你反转从位置 `left` 到位置 `right` 的链表节点，返回 **反转后的链表** 。
+
+ 
+
+**示例 1：**
+
+​	![image-20240825185612946](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825185612946.png)
+
+```
+输入：head = [1,2,3,4,5], left = 2, right = 4
+输出：[1,4,3,2,5]
+```
+
+**示例 2：**
+
+```
+输入：head = [5], left = 1, right = 1
+输出：[5]
+```
+
+ ![image-20240825185713762](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825185713762.png)
+
+![image-20240825185728851](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825185728851.png)
+
+**图解**
+
+``部分节点反转,只有找到反转后链表pre(头节点)上一个节点,p0 , p0-> pre(反转过的头节点), 将未反转时,p0的next节点,指向``
+
+``反转后的 cur节点, 即可 (cur节点时反转后最后一个节点的 next)``
+
+```java
+ public ListNode reverseBetween(LeetCode92.ListNode head, int left, int right) {
+        // 初始化一个哨兵链表
+        ListNode dummy = new ListNode(0, head);
+        // 哨兵节点
+        ListNode p0 = dummy;
+        // 找到需要反转节点的前一个节点
+        for (int i = 0; i < left - 1; i++) {
+            p0 = p0.next;
+        }
+        // 头节点
+        ListNode pre = null;
+        // 用于保存next节点
+        ListNode cur = p0.next;
+        for (int i = 0; i < right-left+1; i++) {
+            // 下下一个节点
+            ListNode next = cur.next;   // 每次循环只修改一个 next，方便大家理解
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        p0.next.next = cur;
+        p0.next = pre;
+        return dummy.next;
+
+    }
+
+    public class ListNode {
+        int val;
+        LeetCode92.ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, LeetCode92.ListNode next) { this.val = val; this.next = next; }
+    }
+
+```
+
+### 14.  [25. K 个一组翻转链表 - 力扣（LeetCode）](https://leetcode.cn/problems/reverse-nodes-in-k-group/solutions/1992228/you-xie-cuo-liao-yi-ge-shi-pin-jiang-tou-plfs/)
+
+给你链表的头节点 `head` ，每 `k` 个节点一组进行翻转，请你返回修改后的链表。
+
+`k` 是一个正整数，它的值小于或等于链表的长度。如果节点总数不是 `k` 的整数倍，那么请将最后剩余的节点保持原有顺序。
+
+你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/reverse_ex1.jpg)
+
+```
+输入：head = [1,2,3,4,5], k = 2
+输出：[2,1,4,3,5]
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/reverse_ex2.jpg)
+
+```
+输入：head = [1,2,3,4,5], k = 3
+输出：[3,2,1,4,5]
+```
+
+**题解**
+
+```java
+// 其实画图更容易理解
+//先判断链表长度n是是否大于k, 进行循环 n>k,  每次循环由于是变k个, 所以 先进行n-k
+// 是在92基础之上迭代了下
+// 注: // 保留变前的哨兵节点next值
+// 保留变前的哨兵节点next值
+// ListNode nxt = p0.next;
+// p0.next.next = cur;
+// p0.next = pre;
+// // 反转后的第二组链表哨兵节点,就是翻转前哨兵节点的next
+// p0= nxt;
+
+    public ListNode reverseKGroup(ListNode head, int k) {
+        int n =0;
+        ListNode cur1 = head;
+        // 计算链表长度
+        while (cur1 !=null){
+            n++;
+            cur1 = cur1.next;
+        }
+        // 初始化一个哨兵链表
+        ListNode dummy = new ListNode(0, head);
+        // 哨兵节点
+        ListNode p0 = dummy;
+        // 头节点
+        ListNode pre = null;
+        // 用于保存next节点
+        ListNode cur = p0.next;
+        while (n>=k){
+            n-=k;  // 每次只变动k个节点,先减去k
+            for (int i = 0; i < k; i++) {
+                // 下下一个节点
+                ListNode next = cur.next;   // 每次循环只修改一个 next，方便大家理解
+                cur.next = pre;
+                pre = cur;
+                cur = next;
+            }
+            // 保留变前的哨兵节点next值
+            ListNode nxt = p0.next;
+            p0.next.next = cur;
+            p0.next = pre;
+            // 反转后的第二组链表哨兵节点,就是翻转前哨兵节点的next
+            p0= nxt;
+        }
+
+        return dummy.next;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }    
+```
+
+### 15. [876. 链表的中间结点 ](https://leetcode.cn/problems/middle-of-the-linked-list/)
+
+[环形链表II【基础算法精讲 07】_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1KG4y1G7cu/?spm_id_from=333.788&vd_source=394ba7019e7f10f68c4eca0cd2e58166)
+
+给你单链表的头结点 `head` ，请你找出并返回链表的中间结点。
+
+如果有两个中间结点，则返回第二个中间结点。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/lc-midlist1.jpg)
+
+```
+输入：head = [1,2,3,4,5]
+输出：[3,4,5]
+解释：链表只有一个中间结点，值为 3 。
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/lc-midlist2.jpg)
+
+```
+输入：head = [1,2,3,4,5,6]
+输出：[4,5,6]
+解释：该链表有两个中间结点，值分别为 3 和 4 ，返回第二个结点。
+```
+
+
+
+```java
+// 快指针每次移动2个 慢指针每次移动一个
+// 当快指针的下一个为空或者快指针为空的时候,慢指针就是最终中间节点(数学归纳法)
+
+public class LeetCode876 {
+    // 快指针每次移动2个 慢指针每次移动一个
+    // 当快指针的下一个为空或者快指针为空的时候,慢指针就是最终中间节点(数学归纳法)
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        // 循环 fast节点不为空或者fast的next节点不为空
+        while (fast != null && fast.next != null) {
+            // 慢节点向后移动一位
+            slow = slow.next;
+            // 快节点向后移动两位
+            fast = fast.next.next;
+        }
+        // 循环结束后,慢节点就是中间节点
+        return slow;
+
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+```
+
+
+
+### 16. [141. 环形链表 - 力扣（LeetCode）](https://leetcode.cn/problems/linked-list-cycle/description/)
+
+给你一个链表的头节点 `head` ，判断链表中是否有环。
+
+如果链表中有某个节点，可以通过连续跟踪 `next` 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 `pos` 来表示链表尾连接到链表中的位置（索引从 0 开始）。**注意：`pos` 不作为参数进行传递** 。仅仅是为了标识链表的实际情况。
+
+*如果链表中存在环* ，则返回 `true` 。 否则，返回 `false` 。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/circularlinkedlist.png)
+
+```
+输入：head = [3,2,0,-4], pos = 1
+输出：true
+解释：链表中有一个环，其尾部连接到第二个节点。
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/circularlinkedlist_test2.png)
+
+```
+输入：head = [1,2], pos = 0
+输出：true
+解释：链表中有一个环，其尾部连接到第一个节点。
+```
+
+**示例 3：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/circularlinkedlist_test3.png)
+
+```
+输入：head = [1], pos = -1
+输出：false
+解释：链表中没有环。
+```
+
+
+
+```java
+// 其实就是876的快慢指针, 快指针比慢指针相对速度多1, 也就是说慢指针静止,快指针速度为,有环必相遇
+   // 快指针每次移动2个 慢指针每次移动一个
+    // 当快指针的下一个为空或者快指针为空的时候,慢指针就是最终中间节点(数学归纳法)
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        // 循环 fast节点不为空或者fast的next节点不为空
+        while (fast != null && fast.next != null) {
+            // 慢节点向后移动一位
+            slow = slow.next;
+            // 快节点向后移动两位
+            fast = fast.next.next;
+            // 如果快慢节点相遇了
+            if (slow.equals(fast)) {
+                return true;
+            }
+        }
+        // 如果不存在快慢节点相遇,返回false
+        return false;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+```
+
+
+
+### 17 .[142. 环形链表 II - 力扣（LeetCode）](https://leetcode.cn/problems/linked-list-cycle-ii/solutions/1999271/mei-xiang-ming-bai-yi-ge-shi-pin-jiang-t-nvsq/)
+
+给定一个链表的头节点  `head` ，返回链表开始入环的第一个节点。 *如果链表无环，则返回 `null`。*
+
+如果链表中有某个节点，可以通过连续跟踪 `next` 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 `pos` 来表示链表尾连接到链表中的位置（**索引从 0 开始**）。如果 `pos` 是 `-1`，则在该链表中没有环。**注意：`pos` 不作为参数进行传递**，仅仅是为了标识链表的实际情况。
+
+**不允许修改** 链表。
+
+
+
+ 
+
+**示例 1：**
+
+![img](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
+
+```
+输入：head = [3,2,0,-4], pos = 1
+输出：返回索引为 1 的链表节点
+解释：链表中有一个环，其尾部连接到第二个节点。
+```
+
+**示例 2：**
+
+![img](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png)
+
+```
+输入：head = [1,2], pos = 0
+输出：返回索引为 0 的链表节点
+解释：链表中有一个环，其尾部连接到第一个节点。
+```
+
+**示例 3：**
+
+![img](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test3.png)
+
+```
+输入：head = [1], pos = -1
+输出：返回 null
+解释：链表中没有环。
+```
+
+![image-20240825223609870](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825223609870.png)
+
+![image-20240825223626765](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825223626765.png)
+
+![image-20240825223844638](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825223844638.png)
+
+![image-20240825224026185](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825224026185.png)
+
+```java
+由于, 快指针比慢指针速度快1, 一开始第一次就在入口相遇,所以快指针走了环长-1, 快指针都没走完一个环长,所以慢指针移动距离小于环长
+    
+    // 快指针每次移动2个 慢指针每次移动一个
+    // 当快指针的下一个为空或者快指针为空的时候,慢指针就是最终中间节点(数学归纳法)
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        // 循环 fast节点不为空或者fast的next节点不为空
+        while (fast != null && fast.next != null) {
+            // 慢节点向后移动一位
+            slow = slow.next;
+            // 快节点向后移动两位
+            fast = fast.next.next;
+            // 如果快慢节点相遇了
+            if (slow.equals(fast)) {
+                // 如果fast和slow相遇, 则head 和slow会在入口处相遇,所以看笔记题解
+                while (slow != head) {
+                    slow = slow.next;
+                    head = head.next;
+                }
+                return  slow;
+            }
+        }
+        // 如果不存在,返回null
+        return  null;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+```
+
+
+
+
+
+### 18. [143. 重排链表](https://leetcode.cn/problems/reorder-list/)
+
+给定一个单链表 `L` 的头节点 `head` ，单链表 `L` 表示为：
+
+```
+L0 → L1 → … → Ln - 1 → Ln
+```
+
+请将其重新排列后变为：
+
+```
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+```
+
+不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/1626420311-PkUiGI-image.png)
+
+```
+输入：head = [1,2,3,4]
+输出：[1,4,2,3]
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/1626420320-YUiulT-image.png)
+
+```
+输入：head = [1,2,3,4,5]
+输出：[1,5,2,4,3]
+```
+
+![image-20240825225934888](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825225934888.png)
+
+![image-20240825230042569](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825230042569.png)
+
+![image-20240825230052296](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825230052296.png)
+
+![image-20240825230057887](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825230057887.png)
+
+
+
+```java
+876 中间节点 + 206 反转节点
+    // 这题是综合题, 先记录 
+```
+
+![image-20240825230244748](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825230244748.png)
+
+![image-20240825230317429](https://gitee.com/TrueNewBee/typora/raw/master/image-20240825230317429.png)
+
+
+
+### 19 删除链表 [237. 删除链表中的节点 - 力扣（LeetCode）](https://leetcode.cn/problems/delete-node-in-a-linked-list/description/)
+
+有一个单链表的 `head`，我们想删除它其中的一个节点 `node`。
+
+给你一个需要删除的节点 `node` 。你将 **无法访问** 第一个节点 `head`。
+
+链表的所有值都是 **唯一的**，并且保证给定的节点 `node` 不是链表中的最后一个节点。
+
+删除给定的节点。注意，删除节点并不是指从内存中删除它。这里的意思是：
+
+- 给定节点的值不应该存在于链表中。
+- 链表中的节点数应该减少 1。
+- `node` 前面的所有值顺序相同。
+- `node` 后面的所有值顺序相同。
+
+**自定义测试：**
+
+- 对于输入，你应该提供整个链表 `head` 和要给出的节点 `node`。`node` 不应该是链表的最后一个节点，而应该是链表中的一个实际节点。
+- 我们将构建链表，并将节点传递给你的函数。
+- 输出将是调用你函数后的整个链表。
+
+ 
+
+**示例 1：**
+
+![img](https://assets.leetcode.com/uploads/2020/09/01/node1.jpg)
+
+```
+输入：head = [4,5,1,9], node = 5
+输出：[4,1,9]
+解释：指定链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/node2.jpg)
+
+```
+输入：head = [4,5,1,9], node = 1
+输出：[4,5,9]
+解释：指定链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9
+```
+
+ 
+
+**提示：**
+
+- 链表中节点的数目范围是 `[2, 1000]`
+- `-1000 <= Node.val <= 1000`
+- 链表中每个节点的值都是 **唯一** 的
+- 需要删除的节点 `node` 是 **链表中的节点** ，且 **不是末尾节点**
+
+![image-20240827220500540](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827220500540.png)
+
+![image-20240827220519105](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827220519105.png)
+
+```java
+// 不知道head, 题目意思只要节点不存在即可,所以 直接把要删除节点copy下一个,下一个变成下下一个
+// 直接删除
+```
+
+
+
+
+
+### 20 [19. 删除链表的倒数第 N 个结点 - 力扣（LeetCode）](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/solutions/2004057/ru-he-shan-chu-jie-dian-liu-fen-zhong-ga-xpfs/)
+
+
+
+给你一个链表，删除链表的倒数第 `n` 个结点，并且返回链表的头结点。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/remove_ex1.jpg)
+
+```
+输入：head = [1,2,3,4,5], n = 2
+输出：[1,2,3,5]
+```
+
+**示例 2：**
+
+```
+输入：head = [1], n = 1
+输出：[]
+```
+
+**示例 3：**
+
+```
+输入：head = [1,2], n = 1
+输出：[1]
+```
+
+ 
+
+**提示：**
+
+- 链表中结点的数目为 `sz`
+- `1 <= sz <= 30`
+- `0 <= Node.val <= 100`
+- `1 <= n <= sz`
+- ![image-20240827222257435](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827222257435.png)
+- ``如果头节点会被删除,则需要创建哨兵链表``
+
+![image-20240827222542505](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827222542505.png)
+
+![image-20240827222830445](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827222830445.png)
+
+
+
+```java
+// 初始化一个 dummyNode, 然后当right右移动n个节点, 开始移动left 与right同时向右移动,之间距离为n ,当right移动到最后一个节点时候,刚好left移动到倒数n+1, 直接left的next直接指向next.next即可
+
+public ListNode removeNthFromEnd(ListNode head, int n) {
+        // 初始化一个哨兵链表
+        ListNode dummy = new ListNode(1, head);
+        ListNode right = dummy;
+        // 先把right向右移动n个
+        for (int i = 0; i < n; i++) {
+            right = right.next;
+        }
+
+        ListNode left = dummy;
+        // left和right同时向右移动,之间差n个
+        while (right.next != null) {
+            left = left.next;
+            right = right.next;
+        }
+        // right移动到最后一个,left是在倒数n+1位置,所以直接 删除倒数第n个位置节点即可
+        left.next = left.next.next;
+        return  dummy.next;
+
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+```
+
+
+
+### 21 [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/)
+
+给定一个已排序的链表的头 `head` ， *删除所有重复的元素，使每个元素只出现一次* 。返回 *已排序的链表* 。
+
+ 
+
+**示例 1：**
+
+![img](https://assets.leetcode.com/uploads/2021/01/04/list1.jpg)
+
+```
+输入：head = [1,1,2]
+输出：[1,2]
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/list2.jpg)
+
+```
+输入：head = [1,1,2,3,3]
+输出：[1,2,3]
+```
+
+ 
+
+**提示：**
+
+- 链表中节点数目在范围 `[0, 300]` 内
+- `-100 <= Node.val <= 100`
+- 题目数据保证链表已经按升序 **排列**
+
+![image-20240827225503348](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827225503348.png)
+
+```java
+// 初始化一个节点 cur ,如果该节点下一个值存在就一直循环, 如果该节点的值与下一个节点值相同, 就删除,否则就移动到下一个节点,直到next为null
+
+ public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+        // cur指向头姐点
+        ListNode cur  = head;
+        while (cur.next != null) {
+            // 如果next的值与当前节点值相同,则删除该节点
+            if (cur.next.val == cur.val) {
+                cur.next = cur.next.next;
+            } else {
+                // 反之则右移
+                cur = cur.next;
+            }
+        }
+        return head;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+```
+
+### 22. [82. 删除排序链表中的重复元素 II - 力扣（LeetCode）](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/)
+
+给定一个已排序的链表的头 `head` ， *删除原始链表中所有重复数字的节点，只留下不同的数字* 。返回 *已排序的链表* 。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/linkedlist1.jpg)
+
+```
+输入：head = [1,2,3,3,4,4,5]
+输出：[1,2,5]
+```
+
+**示例 2：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/linkedlist2.jpg)
+
+```
+输入：head = [1,1,1,2,3]
+输出：[2,3]
+```
+
+ 
+
+**提示：**
+
+- 链表中节点数目在范围 `[0, 300]` 内
+- `-100 <= Node.val <= 100`
+- 题目数据保证链表已经按升序 **排列**
+
+![image-20240827231412128](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827231412128.png)
+
+![](https://gitee.com/TrueNewBee/typora/raw/master/image-20240827231427003.png)
+
+
+
+```java
+// 思路
+// 先初始化一个哨兵链表  dummy,  cur指向哨兵,开始比较 循环 cur.next和cur.next.next
+// 如果两个值相同,则在循环next后面的值, 如果相同,就删除, 如果不同cur正常移动一位
+ public ListNode deleteDuplicates(ListNode head) {
+        // 初始化一个哨兵链表
+        ListNode dummy = new ListNode(1, head);
+        // 初始化一个cur节点
+        ListNode cur = dummy;
+        // 循环遍历 next和next.next 即cur后面两个节点(如果不为空)
+        while (cur.next != null && cur.next.next != null) {
+            int val = cur.next.val;
+            // 如果next和next.next 值相同,则循环遍历next.next后面节点,相同则删除next.next
+            // 如果值不同,则右移一位即可
+            if (cur.next.next.val == val) {
+                while (cur.next != null && cur.next.val == val) {
+                    cur.next = cur.next.next;
+                }
+            } else {
+                // 右移一位
+                cur = cur.next;
+            }
+        }
+        return dummy.next;
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+```
+
+
+
