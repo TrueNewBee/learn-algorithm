@@ -1346,3 +1346,424 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 
 
 
+### 23. [104. 二叉树的最大深度 - 力扣（LeetCode）](https://leetcode.cn/problems/maximum-depth-of-binary-tree/solutions/2010612/kan-wan-zhe-ge-shi-pin-rang-ni-dui-di-gu-44uz/)
+
+给定一个二叉树 `root` ，返回其最大深度。
+
+二叉树的 **最大深度** 是指从根节点到最远叶子节点的最长路径上的节点数。
+
+ 
+
+**示例 1：**
+
+![image-20240831214736646](https://gitee.com/TrueNewBee/typora/raw/master/image-20240831214736646.png)
+
+ 
+
+```
+输入：root = [3,9,20,null,null,15,7]
+输出：3
+```
+
+**示例 2：**
+
+```java
+输入：root = [1,null,2]
+输出：2
+```
+
+ 
+
+```java
+// 递归的理解
+太NB了，一下就把递归的核心讲明白了。下面说说我的理解：
+其实可以把递归过程类比于一个传话游戏，假设每个人只能解码一段密码中的很小部分字符，那要做的就是每个人解码自己会的，把不会的传递给下一个人，如果最后一个人解码成功，那通过不断把答案回给传递给他的人并组装自己解码的部分，等回到第一个人手里整段密码就会全部解开。这就是递归的过程，问题随着传递不断简化，最后一次递归返回的答案回到第一层，已经是一个庞大的问题的最终答案了。想清楚这一点就能明白递归能解决什么问题，一个能不断分解且子问题解法和主问题相似。
+能不能递归首先要分析问题，求二叉树最大深度的问题，只需要知道，根节点的左右子树中谁最高，最高的加上1就是树最大深度。那怎么知道左右子树中谁最高？那如果能知道左右子树的左右子树里谁最高，同样再加一就能得到答案。把这个答案返回给上一层，就是根节点的左右子树中谁最高的，加一得到最终答案。可以看到第二层解决的问题和第一层相似，但规模要小。传到最后到叶子节点，往上返回当前高度，最后就是整颗树的高度。
+    1. 如何思考二叉树相关问题？
+- 不要一开始就陷入细节，而是思考整棵树与其左右子树的关系。
+2. 为什么需要使用递归？
+- 子问题和原问题是相似的，他们执行的代码也是相同的（类比循环），但是子问题需要把计算结果返回给上一级，这更适合用递归实现。
+3. 为什么这样写就一定能算出正确答案？
+- 由于子问题的规模比原问题小，不断“递”下去，总会有个尽头，即递归的边界条件 ( base case )，直接返回它的答案“归”；
+- 类似于数学归纳法（多米诺骨牌），n=1时类似边界条件；n=m时类似往后任意一个节点
+4. 计算机是怎么执行递归的？
+- 当程序执行“递”动作时，计算机使用栈保存这个发出“递”动作的对象，程序不断“递”，计算机不断压栈，直到边界时，程序发生“归”动作，正好将执行的答案“归”给栈顶元素，随后程序不断“归”，计算机不断出栈，直到返回原问题的答案，栈空。
+5. 另一种递归思路
+- 维护全局变量，使用二叉树遍历函数，不断更新全局变量最大值。
+    
+处理递归，核心就是千万不要想子问题的过程，你脑子能处理几层？马上就绕迷糊了。要想子问题的结果，思路就清晰了
+    的，只要代码的边界条件和非边界条件的逻辑写对了，其他的事情交给数学归纳法就好了。也就是说，写对了这两个逻辑，你的代码自动就是正确的了，没必要想递归是怎么一层一层走的。
+```
+
+
+
+```java
+// ps: 计算机在递归时候,有个栈 用于存储每次递归结果并返回给上层节点,这样就是 从上倒下一层一层递归
+// 结果也会自下向上传递
+public int maxDepth(TreeNode root) {
+
+        // 递归就是 父类问题和子类问题都是共同公式,不关心中间过程,只关心开始和结束
+        // 中间过程交给数学归纳法
+
+        // 如果节点为空,直接返回0
+        if (root == null) {
+            return 0;
+        }
+        // 递归左节点
+        int l_depth = maxDepth(root.left);
+        // 递归右节点
+        int r_depth = maxDepth(root.right);
+        // 返回 深度最大值+1 (1为当前节点)
+        return Math.max(l_depth, r_depth)+1;
+
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+
+    // 方法2  有一个全局变量,每遍历完一次,更新ans全局变量,最后返回即可
+    private int ans;
+
+    public int maxDepth2(TreeNode root) {
+        dfs(root, 0);
+        return ans;
+    }
+
+    private void dfs(TreeNode node, int depth) {
+        if (node == null) {
+            return;
+        }
+        depth++;
+        ans = Math.max(ans, depth);
+        dfs(node.left, depth);
+        dfs(node.right, depth);
+    }
+```
+
+
+
+### 24. [100. 相同的树](https://leetcode.cn/problems/same-tree/)
+
+给你两棵二叉树的根节点 `p` 和 `q` ，编写一个函数来检验这两棵树是否相同。
+
+如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
+
+ 
+
+**示例 1：**
+
+![image-20240901211316849](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901211316849.png)
+
+```
+输入：p = [1,2,3], q = [1,2,3]
+输出：true
+```
+
+**示例 2：**
+
+![image-20240901211331146](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901211331146.png)
+
+```
+输入：p = [1,2], q = [1,null,2]
+输出：false
+```
+
+**示例 3：**
+
+![image-20240901211342646](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901211342646.png)
+
+```
+输入：p = [1,2,1], q = [1,1,2]
+输出：false
+```
+
+
+
+```java
+public boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null || q == null) {
+            return p==q;  // 必须都是 null
+        }
+
+        // 左右树节点值相等,并且左右节点继续递归,最终返回递归后的结果
+        return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+```
+
+
+
+### 25. [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree/)
+
+给你一个二叉树的根节点 `root` ， 检查它是否轴对称。
+
+ 
+
+**示例 1：**
+
+![img](https://gitee.com/TrueNewBee/typora/raw/master/1698026966-JDYPDU-image.png)
+
+```
+输入：root = [1,2,2,3,4,4,3]
+输出：true
+```
+
+**示例 2：**
+
+![img](https://pic.leetcode.cn/1698027008-nPFLbM-image.png)
+
+```
+输入：root = [1,2,2,null,3,null,3]
+输出：false
+```
+
+ 
+
+```java
+ public boolean isSymmetric(TreeNode root) {
+        return isSameTree(root.left, root.right);
+    }
+
+    public boolean isSameTree(LeetCode100.TreeNode p, LeetCode100.TreeNode q) {
+        if (p == null || q == null) {
+            return p==q;  // 必须都是 null
+        }
+
+        // 同一个根节点,由于是判断是否是对称的,所以 p.left 和 q.right 比较
+        return p.val == q.val && isSameTree(p.left, q.right) && isSameTree(p.right, q.left);
+    }
+
+    public class TreeNode {
+        int val;
+        LeetCode100.TreeNode left;
+        LeetCode100.TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, LeetCode100.TreeNode left, LeetCode100.TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+```
+
+
+
+### 26. [110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
+
+给定一个二叉树，判断它是否是 
+
+平衡二叉树
+
+ 
+
+
+
+ 
+
+**示例 1：**
+
+![image-20240901224644850](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901224644850.png)
+
+```
+输入：root = [3,9,20,null,null,15,7]
+输出：true
+```
+
+**示例 2：**
+
+![image-20240901224658492](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901224658492.png)
+
+```
+输入：root = [1,2,2,3,3,null,null,4,4]
+输出：false
+```
+
+**示例 3：**
+
+```
+输入：root = []
+输出：true
+```
+
+
+
+```java
+// 看注释即可
+
+public boolean isBalanced(TreeNode root) {
+       return  getHeight(root) != -1;
+    }
+
+    public int getHeight(TreeNode node) {
+        // 如果节点为空就返回 0
+        if (node == null) {
+            return 0;
+        }
+        // 递归左节点获取高度
+        int leftHeight = getHeight(node.left);
+        // 如果高度为-1 就向上一直返回
+        if (leftHeight == -1) {
+            return -1;
+        }
+        // 递归右节点获取高度
+        int rightHeight = getHeight(node.right);
+        // 如果右节点高度为-1或者 左右高度差绝对值大于1 则返回-1
+        if (rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+        // 返回左右高度最大值+1 (1为当前节点)
+        return Math.max(leftHeight,rightHeight) +1;
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+```
+
+
+
+### 27 [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/)
+
+给定一个二叉树的 **根节点** `root`，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+
+ 
+
+**示例 1:**
+
+![image-20240901230620048](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901230620048.png)
+
+```
+输入: [1,2,3,null,5,null,4]
+输出: [1,3,4]
+```
+
+**示例 2:**
+
+```
+输入: [1,null,3]
+输出: [1,3]
+```
+
+**示例 3:**
+
+```
+输入: []
+输出: []
+```
+
+
+
+### 28. [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/)
+
+给定一个二叉树的 **根节点** `root`，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+
+ 
+
+**示例 1:**
+
+![img](https://assets.leetcode.com/uploads/2021/02/14/tree.jpg)
+
+```
+输入: [1,2,3,null,5,null,4]
+输出: [1,3,4]
+```
+
+**示例 2:**
+
+```
+输入: [1,null,3]
+输出: [1,3]
+```
+
+**示例 3:**
+
+```
+输入: []
+输出: []
+```
+
+ 
+
+![image-20240901233959011](https://gitee.com/TrueNewBee/typora/raw/master/image-20240901233959011.png)
+
+
+
+```java
+// 初始化一个 数组ans记录下当前存入节点
+// depth如果 =ans长度,则放进数组中
+
+    public List<Integer> rightSideView(TreeNode root) {
+        // 答案数组
+        List<Integer> ans = new ArrayList<>();
+        dfs(root, 0,ans);
+        return ans;
+    }
+
+    public void dfs(TreeNode node, int depth,List<Integer> ans) {
+        // 如果节点为空就跳
+        if (node == null) {
+            return;
+        }
+        // 如果深度等于数组长度就将数字添加到数组中
+        if (depth == ans.size()) {
+            ans.add(node.val);
+        }
+        // 由于是右视图,先递归右节点 (如果左视图先递归左节点)
+        dfs(node.right, depth + 1,ans);
+        dfs(node.left, depth + 1,ans);
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+```
+
